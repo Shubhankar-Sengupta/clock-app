@@ -1,0 +1,320 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+*::after,*::before, * {
+    box-sizing: border-box;
+}
+
+/*Custom variables*/
+:root {
+    --font--bold: 700;
+    --font--regular: 400;
+    --color-white:#fff;
+    --color--black:#303030;
+    --color--black-2: rgba(0,0,0,.75);
+    --color-grey: rgba(255,255,255, .75);
+    font-size: 12px;
+}
+
+
+.day, .time-zone {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+
+body {
+    font-family: 'Inter', sans-serif;
+    font-weight: var(--font--regular);
+    color: var(--color-white);
+    min-height: 100vh;
+}
+
+.destination-f {
+    letter-spacing: .162em;
+}
+
+
+.author {
+    font-weight: var(--font--bold);
+    order: 3;
+    line-height: 2.75;
+}
+
+.main-quote {
+    display: grid;
+    grid-template-columns: 1fr 1.45fr;
+}
+
+.layout-big {
+    min-height: inherit;
+}
+
+.std-desc {
+    font-size: 1.03rem;
+    font-weight: var(--font--regular);
+}
+
+.container {
+    min-height: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+
+.time-slot {
+    margin-left: 1.2rem;
+}
+
+.button-toggle-collapsible {
+    grid-template-columns: 2.65fr minmax(12px, 2.75fr);
+    padding-top: .31em;
+    padding-bottom: .31em;
+}
+
+.col-1 {
+    width: 12%;
+}
+
+.h1, .h2, .h6 , .h4 {
+    font-weight: var(--font--bold);
+}
+
+.h6, .icon-display, .destination {
+    text-transform: uppercase;
+}
+
+.h1 {
+    font-size: 15rem;
+} 
+
+.h4 {
+    font-size: 2rem;
+}
+
+.h2 {
+    font-size: 3rem;
+}
+
+.h5 {
+    font-size: 1.27rem;
+}
+
+
+.h6 {
+    font-size: .75rem;
+}
+
+.info {
+    text-transform: capitalize;
+}
+
+.bkgnd {
+    background-image: url('./assets/desktop/jeremy-bishop-dvACrXUExLs-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bkgnd-2 {
+    background-image: url('./assets/desktop/jeremy-bishop-dvACrXUExLs-unsplash(night).jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.refresh-button {
+    cursor: pointer;
+    order: 2;
+}
+
+.hidden {
+    display: none;
+}
+
+
+.icon-reverse {
+    transform: rotate(180deg);
+}
+
+.second-interface {
+    display: flex;
+    justify-content: space-around;
+    color: var(--color--black);
+    background-color: var(--color-grey);
+    backdrop-filter: blur(42.7742px);
+}
+
+.destination {
+    display: flex;
+    justify-content: space-between;
+}
+
+.icon-display {
+    letter-spacing: 7px;
+}
+
+.quotes::before {
+    content: open-quote;
+}
+
+.quotes::after {
+    content: close-quote;
+}
+
+.rotate-full {
+    transform: rotate(180deg);
+    transition: all .35s ease-in;
+}
+
+.arrow-icon {
+    justify-self: end;
+}
+
+.quote-area {
+    line-height: 1.65;
+    overflow: hidden;
+}
+
+
+
+@media (max-width:992px) {
+
+
+    .arrow-icon {
+        justify-self: end;
+    }
+
+    .button-toggle-collapsible {
+        grid-template-columns: 2fr minmax(10px, 1.35fr);
+    }
+
+    .col-1 {
+        width: 24%;
+    }
+
+    .main-quote > * {
+        font-size: .9em;
+    }
+
+    .main-quote {
+        grid-template-columns: 8fr .5fr;
+    }
+
+    .time {
+        font-size: 12rem;
+    }
+
+    .destination {
+        flex-direction: column;
+    }
+
+    .bkgnd {
+        background-image: url('./assets/tablet/jeremy-bishop-dvACrXUExLs-unsplash1.jpg');
+    }
+
+    .bkgnd-2 {
+        background-image: url('./assets/tablet/jeremy-bishop-dvACrXUExLs-unsplash1(night).jpg');
+    }
+
+    .info {
+        font-size: 1.85rem;
+    }
+}
+
+
+@media (max-width:500px) {
+
+    .destination-f {
+        font-size: 1.3rem;
+    }
+
+    .destination {
+        padding-top: 15px;
+    }
+
+    .h1 {
+        display: grid;
+        grid-template-columns: .55fr minmax(5px, .65fr);
+        justify-items: start;
+        padding-top: 15px;
+    }
+
+
+    .time-standard {
+        align-self: end;
+    }
+
+    .greet-time {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .button-toggle-collapsible {
+        grid-template-columns: 4fr minmax(12px, 4.78fr);
+    }
+
+    .col-1 {
+        width: 39%;
+    }
+
+    .hide_mobile {
+        display: none;
+    }
+
+    .time {
+        align-self: end;
+        font-size: 5.36rem;
+    }
+
+    .week-no > span {
+        display: flex;
+    }
+
+    .time-zone > span {
+        display: flex;
+    }
+
+    .info {
+        display: inline;
+        margin-left: auto;
+        font-size: 1.35rem;
+    }
+
+    .second-interface {
+        flex-direction: column;
+        padding-right: 10px;
+        padding-left: 10px;
+        justify-content: center;
+    }
+
+    .bkgnd {
+        background-image: url('./assets/mobile/jeremy-bishop-dvACrXUExLs-unsplash2.jpg');
+    }
+
+    .bkgnd-2 {
+        background-image: url('./assets/mobile/jeremy-bishop-dvACrXUExLs-unsplash2(night).jpg');
+    }
+
+}
+
+@media (max-width:400px) {
+    .time-standard {
+        justify-self: center;
+    }
+}
+
+@media (max-width:280px) {
+
+    .icon-display {
+        font-size: smaller;
+    }
+
+    .col-1 {
+        width: 45%;
+    }
+
+    .time {
+        font-size: 4.5rem;
+    }
+    
+}
