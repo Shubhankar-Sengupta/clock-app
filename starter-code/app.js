@@ -48,8 +48,8 @@ function containerSection(transition, display, position, bottom, right, left, he
 }
 
 
-myCollapsible.addEventListener('show.bs.collapse', function gr (evt) {
-    containerSection(`all .75s ease-out`, `none`, `absolute`, `12rem`, `0px`, `0px`, `280px`, `none`, `inline`,`rotate-full`);
+myCollapsible.addEventListener('show.bs.collapse', function gr(evt) {
+    containerSection(`all .75s ease-out`, `none`, `absolute`, `12rem`, `0px`, `0px`, `280px`, `none`, `inline`, `rotate-full`);
 })
 
 
@@ -60,6 +60,7 @@ myCollapsible.addEventListener('hide.bs.collapse', function gr(evt) {
 
 
 function loadData([element, element2, element3]) {
+
     element.style.color = arguments[1][0];
     element.style.backgroundColor = arguments[1][1];
     element2.style.color = arguments[1][2];
@@ -67,6 +68,7 @@ function loadData([element, element2, element3]) {
     element2.style.backdropFilter = arguments[1][3];
     element3.classList.add(arguments[1][4]);
     element3.classList.remove(arguments[1][5]);
+
 }
 
 
