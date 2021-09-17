@@ -33,28 +33,30 @@ async function quoteRandom() {
 refreshButton.addEventListener('click', quoteRandom);
 
 
-myCollapsible.addEventListener('show.bs.collapse', (evt) => {
-    myCollapsible.style.transition = `all .75s ease-out`;
-    quoteArea.style.display = `none`;
-    arrow_icon.classList.add('rotate-full');
-    shown.style.display =`none`;
-    hidden.style.display = `inline`;
-    sec_container.style.position = `absolute`;
-    sec_container.style.bottom = `12rem`;
-    sec_container.style.right = `0px`;
-    sec_container.style.left = `0px`;
-    inside_sec_div.style.height = `280px`;
+
+function containerSection(transition, display, position, bottom, right, left, height, display_2, display_3, rotate) {
+    myCollapsible.style.transition = transition;
+    quoteArea.style.display = display;
+    sec_container.style.position = position;
+    sec_container.style.bottom = bottom;
+    sec_container.style.right = right;
+    sec_container.style.left = left;
+    inside_sec_div.style.height = height;
+    shown.style.display = display_2;
+    hidden.style.display = display_3;
+    arrow_icon.classList.toggle(rotate)
+}
+
+
+myCollapsible.addEventListener('show.bs.collapse', function gr (evt) {
+    containerSection(`all .75s ease-out`, `none`, `absolute`, `12rem`, `0px`, `0px`, `280px`, `none`, `inline`,`rotate-full`);
 })
 
 
-myCollapsible.addEventListener('hide.bs.collapse', (evt) => {
-    myCollapsible.style.transition = `all .75s ease-out`;
-    quoteArea.style.display = `grid`;
-    arrow_icon.classList.remove('rotate-full');
-    shown.style.display =`inline`;
-    hidden.style.display = `none`;
-    sec_container.style.position = `static`;
+myCollapsible.addEventListener('hide.bs.collapse', function gr(evt) {
+    containerSection(`all .75s ease-out`, `grid`, `static`, `12rem`, `0px`, `0px`, `280px`, `inline`, `none`, `rotate-full`);
 })
+
 
 
 window.onload = async (evt) => {
