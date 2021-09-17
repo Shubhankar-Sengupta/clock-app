@@ -44,7 +44,7 @@ function containerSection(transition, display, position, bottom, right, left, he
     inside_sec_div.style.height = height;
     shown.style.display = display_2;
     hidden.style.display = display_3;
-    arrow_icon.classList.toggle(rotate)
+    arrow_icon.classList.toggle(rotate);
 }
 
 
@@ -54,9 +54,20 @@ myCollapsible.addEventListener('show.bs.collapse', function gr (evt) {
 
 
 myCollapsible.addEventListener('hide.bs.collapse', function gr(evt) {
-    containerSection(`all .75s ease-out`, `grid`, `static`, `12rem`, `0px`, `0px`, `280px`, `inline`, `none`, `rotate-full`);
+    containerSection(`all .75s ease-out`, `grid`, `static`, ``, ``, ``, ``, `inline`, `none`, `rotate-full`);
 })
 
+
+
+function loadData([element, element2, element3]) {
+    element.style.color = arguments[1][0];
+    element.style.backgroundColor = arguments[1][1];
+    element2.style.color = arguments[1][2];
+    element2.style.backgroundColor = arguments[1][2];
+    element2.style.backdropFilter = arguments[1][3];
+    element3.classList.add(arguments[1][4]);
+    element3.classList.remove(arguments[1][5]);
+}
 
 
 window.onload = async (evt) => {
@@ -75,13 +86,7 @@ window.onload = async (evt) => {
     else {
         time_slot_day.innerHTML = `evening`;
         imgSvg.src = `./assets/desktop/icon-moon.svg`;
-        backgroundImg.classList.add('bkgnd-2');
-        backgroundImg.classList.remove('bkgnd');
-        myCollapsible.style.color = `var(--color-white)`;
-        myCollapsible.style.backgroundColor = `var(--color--black-2)`;
-        inside_sec_div.style.color = `inherit`;
-        inside_sec_div.style.backgroundColor = `inherit`;
-        inside_sec_div.style.backdropFilter = `blur(40.7742px)`;
+        loadData([myCollapsible, inside_sec_div, backgroundImg], [`var(--color-white)`, `var(--color--black-2)`, `inherit`, `blur(40.7742px)`, `bkgnd-2`, `bkgnd`]);
     }
 
     const time_info = await axios.get('http://worldtimeapi.org/api/ip');
