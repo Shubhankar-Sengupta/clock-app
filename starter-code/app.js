@@ -18,8 +18,6 @@ const shown = document.querySelector('.shown');
 const hidden = document.querySelector('.hidden');
 const sec_container = document.querySelector('.container');
 const inside_sec_div = document.querySelector('.second-interface');
-const bt_reverse = document.getElementsByClassName('icon-reverse');
-
 
 
 // manipulating elements
@@ -72,20 +70,20 @@ function loadData([element, element2, element3]) {
 
 }
 
-let dt = new Date();
-let seconds = dt.getSeconds();
-let snds_to_crack = 60-seconds;
+// let dt;
+// let seconds;
+// let snds_to_crack;
 
 
-async function just() {
-    dt = new Date();
-    seconds = dt.getSeconds();
-    snds_to_crack = 60 - seconds;
-    const time_info = await axios.get('http://worldtimeapi.org/api/ip');
-    const curr_time = time_info.data.datetime.slice(11, 16);
-    time.innerHTML = curr_time;
-    std_time.innerHTML = time_info.data.abbreviation;
-}
+// async function just() {
+//     dt = new Date();
+//     seconds = dt.getSeconds();
+//     snds_to_crack = 60 - seconds;
+//     const time_info = await axios.get('http://worldtimeapi.org/api/ip');
+//     const curr_time = time_info.data.datetime.slice(11, 16);
+//     time.innerHTML = curr_time;
+//     std_time.innerHTML = time_info.data.abbreviation;
+// }
 
 
 function time_during_day() {
@@ -110,12 +108,10 @@ function time_during_day() {
 }
 
 
-setInterval((evt) => {
-    just();
-    time_during_day();
-}, snds_to_crack * 1000)
-
-
+// setInterval((evt) => {
+//     // just();
+//     time_during_day();
+// }, snds_to_crack * 1000)
 
 
 window.onload = async (evt) => {
@@ -124,8 +120,6 @@ window.onload = async (evt) => {
 
     const time_info = await axios.get('http://worldtimeapi.org/api/ip');
     const set_city_time = await axios.get('https://freegeoip.app/json/');
-
-    console.log(time_info, set_city_time)
 
     function setInfo({ data }, data_obj_2) {
 
