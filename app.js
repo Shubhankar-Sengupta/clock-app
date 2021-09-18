@@ -172,6 +172,7 @@ window.onload = async (evt) => {
     }
 
     setInfo(time_info, set_city_time);
+
 };
 
 
