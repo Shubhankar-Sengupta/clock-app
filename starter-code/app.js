@@ -70,16 +70,9 @@ function loadData([element, element2, element3]) {
 
 }
 
-
-let dt = new Date();
-let seconds = dt.getSeconds();
-let snds_to_crack = 60-seconds;
-
+let snds_to_crack;
 
 async function just() {
-    dt = new Date();
-    seconds = dt.getSeconds();
-    snds_to_crack = 60 - seconds;
     const time_info = await axios.get('http://worldtimeapi.org/api/ip');
     const curr_time = time_info.data.datetime.slice(11, 16);
     time.innerHTML = curr_time;
@@ -88,6 +81,9 @@ async function just() {
 
 
 setInterval(async (evt) => {
+    let dt = new Date();
+    let seconds = dt.getSeconds();
+    snds_to_crack = 60 - seconds;
     just();
 }, snds_to_crack * 1000);
 
