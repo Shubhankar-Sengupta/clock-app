@@ -70,22 +70,22 @@ function loadData([element, element2, element3]) {
 
 }
 
-let snds_to_crack;
+// let snds_to_crack;
 
-async function just() {
-    const time_info = await axios.get('http://worldtimeapi.org/api/ip');
-    const curr_time = time_info.data.datetime.slice(11, 16);
-    time.innerHTML = curr_time;
-    std_time.innerHTML = time_info.data.abbreviation;
-}
+// async function just() {
+//     const time_info = await axios.get('http://worldtimeapi.org/api/ip');
+//     const curr_time = time_info.data.datetime.slice(11, 16);
+//     time.innerHTML = curr_time;
+//     std_time.innerHTML = time_info.data.abbreviation;
+// }
 
 
-setInterval(async (evt) => {
-    let dt = new Date();
-    let seconds = dt.getSeconds();
-    snds_to_crack = 60 - seconds;
-    just();
-}, snds_to_crack * 1000);
+// setInterval(async (evt) => {
+//     let dt = new Date();
+//     let seconds = dt.getSeconds();
+//     snds_to_crack = 60 - seconds;
+//     just();
+// }, snds_to_crack * 1000);
 
 
 function time_during_day() {
