@@ -62,6 +62,10 @@ body {
     justify-content: space-around;
 }
 
+.icn-clr:hover {
+    fill: var(--color--black-2);
+}
+
 
 .time-slot {
     margin-left: 1.2rem;
@@ -135,6 +139,7 @@ body {
 .icon-reverse {
     transform: rotate(180deg);
 }
+
 
 .second-interface {
     display: flex;
