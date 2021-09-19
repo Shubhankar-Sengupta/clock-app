@@ -72,11 +72,24 @@ function loadData([element, element2, element3]) {
 
 
 
-function just(time_info) {
+async function just() {
+
+    const newDt = new Date();
+    const hours = newDt.getHours();
+
+    if(hours === 12 || hours === 18) {
+        time_during_day();
+    }
+    
+    const time_info = await axios.get('http://worldtimeapi.org/api/ip');
     const curr_time = time_info.data.datetime.slice(11, 16);
     time.innerHTML = curr_time;
-    std_time.innerHTML = time_info.data.abbreviation;
-    time_during_day();
+    std_time.innerHTML = time_info.data.abbreviation; 
+
+    if (curr_time === "00:00") {
+        window.onload();
+    }
+
 }
 
 
@@ -94,10 +107,9 @@ function callEveryTime() {
     }
 
 
-    async function func_1() {
+    function func_1() {
         clearInterval(interval);
-        const time_info = await axios.get('http://worldtimeapi.org/api/ip');
-        just(time_info);
+        just();
         changeTimer();
         interval = setInterval(func_1, snds_to_crack * 1000);
     }
