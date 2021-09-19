@@ -72,34 +72,36 @@ function loadData([element, element2, element3]) {
 
 
 
-// async function just() {
-//     const time_info = await axios.get('http://worldtimeapi.org/api/ip');
-//     const curr_time = time_info.data.datetime.slice(11, 16);
-//     time.innerHTML = curr_time;
-//     std_time.innerHTML = time_info.data.abbreviation;
-// }
+function just(time_info) {
+    const curr_time = time_info.data.datetime.slice(11, 16);
+    time.innerHTML = curr_time;
+    std_time.innerHTML = time_info.data.abbreviation;
+    time_during_day();
+}
 
 
-// let dt = new Date();
-// let seconds = dt.getSeconds();
-// let snds_to_crack = 60 - seconds;
-// let interval;
+let dt = new Date();
+let seconds = dt.getSeconds();
+let snds_to_crack = 60 - seconds; //timer
+let interval;
 
-// func_1();
+func_1();
 
-// function changeTimer() {
-//     dt = new Date();
-//     seconds = dt.getSeconds();
-//     snds_to_crack = 60 - seconds;
-//     return snds_to_crack;
-// }
+function changeTimer() {
+    dt = new Date();
+    seconds = dt.getSeconds();
+    snds_to_crack = 60 - seconds;
+}
 
-// function func_1() {
-//     clearInterval(interval);
-//     just();
-//     const bt = changeTimer();
-//     interval = setInterval(func_1, bt);
-// }
+
+async function func_1() {
+    clearInterval(interval);
+    const time_info = await axios.get('http://worldtimeapi.org/api/ip');
+    just(time_info);
+    changeTimer();
+    interval = setInterval(func_1, snds_to_crack * 1000);
+}
+
 
 
 
