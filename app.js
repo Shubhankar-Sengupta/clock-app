@@ -80,29 +80,31 @@ function just(time_info) {
 }
 
 
-let dt = new Date();
-let seconds = dt.getSeconds();
-let snds_to_crack = 60 - seconds; //timer
-let interval;
+function callEveryTime() {
 
-func_1();
+    let snds_to_crack; //timer
+    let interval;
 
-function changeTimer() {
-    dt = new Date();
-    seconds = dt.getSeconds();
-    snds_to_crack = 60 - seconds;
+    func_1();
+
+    function changeTimer() {
+        let dt = new Date();
+        let seconds = dt.getSeconds();
+        snds_to_crack = 60 - seconds;
+    }
+
+
+    async function func_1() {
+        clearInterval(interval);
+        const time_info = await axios.get('http://worldtimeapi.org/api/ip');
+        just(time_info);
+        changeTimer();
+        interval = setInterval(func_1, snds_to_crack * 1000);
+    }
+
 }
 
-
-async function func_1() {
-    clearInterval(interval);
-    const time_info = await axios.get('http://worldtimeapi.org/api/ip');
-    just(time_info);
-    changeTimer();
-    interval = setInterval(func_1, snds_to_crack * 1000);
-}
-
-
+callEveryTime();
 
 
 async function time_during_day() {
