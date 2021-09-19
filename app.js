@@ -72,7 +72,6 @@ function loadData([element, element2, element3]) {
 
 
 
-
 // async function just() {
 //     const time_info = await axios.get('http://worldtimeapi.org/api/ip');
 //     const curr_time = time_info.data.datetime.slice(11, 16);
@@ -81,23 +80,30 @@ function loadData([element, element2, element3]) {
 // }
 
 
-// function time_out_execute() {
-//     let dt;
-//     let seconds;
-//     let snds_to_crack;
+// let dt = new Date();
+// let seconds = dt.getSeconds();
+// let snds_to_crack = 60 - seconds;
+// let interval;
 
-//     setInterval(async (evt) => {
-//         dt = new Date();
-//         seconds = dt.getSeconds();
-//         snds_to_crack = 60 - seconds;
-//         just();
-//     }, snds_to_crack * 1000);
+// func_1();
+
+// function changeTimer() {
+//     dt = new Date();
+//     seconds = dt.getSeconds();
+//     snds_to_crack = 60 - seconds;
+//     return snds_to_crack;
 // }
 
-// time_out_execute();
+// function func_1() {
+//     clearInterval(interval);
+//     just();
+//     const bt = changeTimer();
+//     interval = setInterval(func_1, bt);
+// }
 
 
-function time_during_day() {
+
+async function time_during_day() {
 
     const newDate = new Date();
     const hrs = newDate.getHours();
@@ -181,10 +187,6 @@ window.onload = async (evt) => {
     }
 
     setInfo(time_info, set_city_time);
-
 };
-
-
-
 
 
